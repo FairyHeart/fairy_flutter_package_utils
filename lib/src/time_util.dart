@@ -51,6 +51,16 @@ class TimeUtil {
     return dateTime;
   }
 
+  ///格式化日期转时间戳-毫秒
+  static int parseDataTimeMilliseconds(String dateStr) {
+    return parseDataTime(dateStr).millisecondsSinceEpoch;
+  }
+
+  ///格式化日期转时间戳-微秒
+  static int parseDataTimeMicroseconds(String dateStr) {
+    return parseDataTime(dateStr).microsecondsSinceEpoch;
+  }
+
   /// 格式化日期转时间
   /// 只支持下面几种时间类型，不支持类型抛出异常:
   ///
@@ -69,18 +79,6 @@ class TimeUtil {
   static DateTime parseDataTime(String dateStr) {
     var dateTime = DateTime.parse(dateStr);
     return dateTime;
-  }
-
-  ///格式化日期转时间戳-毫秒
-  static int parseDataTimeMilliseconds(String dateStr) {
-    var dateTime = DateTime.parse(dateStr);
-    return dateTime.millisecondsSinceEpoch;
-  }
-
-  ///格式化日期转时间戳-微秒
-  static int parseDataTimeMicroseconds(String dateStr) {
-    var dateTime = DateTime.parse(dateStr);
-    return dateTime.microsecondsSinceEpoch;
   }
 
   /// 时间戳(毫秒)格式化
@@ -247,13 +245,6 @@ class TimeUtil {
     return dateA?.year == dateB?.year;
   }
 
-  /// 是否同年同月同日
-  static bool isSameYMD(DateTime? dateA, DateTime? dateB) {
-    return isSameYear(dateA, dateB) &&
-        isSameMonth(dateA, dateB) &&
-        isSameDay(dateA, dateB);
-  }
-
   /// 是否是今天
   static bool isToday(int? milliseconds, {bool isUtc = false}) {
     if (milliseconds == null || milliseconds == 0) return false;
@@ -311,39 +302,37 @@ class TimeUtil {
 
   ///获取几天前[ofDay]的开始时间 0 = 当天
   ///Return 毫秒
-  int getStartDateTimeMillisecondsOfToDay({int ofDay = 0}) {
+  static int getStartDateTimeMillisecondsOfToDay({int ofDay = 0}) {
     return getStartDateTimeOfToDay(ofDay: ofDay).millisecondsSinceEpoch;
   }
 
   ///获取几天前[ofDay]的开始时间 0 = 当天
   ///Return DateTime
-  DateTime getStartDateTimeOfToDay({int ofDay = 0}) {
+  static DateTime getStartDateTimeOfToDay({int ofDay = 0}) {
     var now = DateTime.now();
-    now.add(Duration(days: ofDay));
-    return DateTime(now.year, now.month, now.day, 0, 0, 0, 0, 0);
+    return DateTime(now.year, now.month, now.day + ofDay, 0, 0, 0, 0, 0);
   }
 
   ///获取某天的结束时间 0 = 当天
-  int getEndDateTimeMillisecondsOfToDay({int ofDay = 0}) {
+  static int getEndDateTimeMillisecondsOfToDay({int ofDay = 0}) {
     return getEndDateTimeOfToDay(ofDay: ofDay).millisecondsSinceEpoch;
   }
 
   ///获取某天的结束时间 0 = 当天
   ///Return 毫秒
-  DateTime getEndDateTimeOfToDay({int ofDay = 0}) {
+  static DateTime getEndDateTimeOfToDay({int ofDay = 0}) {
     var now = DateTime.now();
-    now.add(Duration(days: ofDay));
-    return DateTime(now.year, now.month, now.day, 23, 59, 59, 999, 999);
+    return DateTime(now.year, now.month, now.day + ofDay, 23, 59, 59, 999, 999);
   }
 
   ///获取本月的开始时间 0 = 当月
-  DateTime getStartDateTimeToMonth({int ofMonth = 0}) {
+  static DateTime getStartDateTimeOfToMonth({int ofMonth = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month + ofMonth, 1, 0, 0, 0, 0, 0);
   }
 
   ///获取本月的结束时间 0 = 当月
-  DateTime getEndDateTimeToMonth({int ofMonth = 0}) {
+  static DateTime getEndDateTimeOfToMonth({int ofMonth = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month + ofMonth + 1, 1, 23, 59, 59, 999, 999)
         .add(Duration(days: -1));
@@ -353,7 +342,7 @@ class TimeUtil {
   ///[startTime] 营业开始时间（时分秒毫秒之和）
   ///[endTime] 营业结束时间（时分秒毫秒之和）
   ///[ofDay] 天数，0当天
-  int getStartBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
+  static int getStartBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     return _getBusinessTime(startTime, endTime, ofDay: ofDay) + startTime;
   }
 
@@ -361,22 +350,22 @@ class TimeUtil {
   ///[startTime] 营业开始时间（时分秒毫秒之和）
   ///[endTime] 营业结束时间（时分秒毫秒之和）
   ///[ofDay] 天数，0当天
-  int getEndBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
+  static int getEndBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     return _getBusinessTime(startTime, endTime, ofDay: ofDay) + endTime;
   }
 
   ///获取营业时间,startTime=开始时间戳,endTime=结束时间戳,ofDay=0当天，return 营业开始的时间
-  int _getBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
+  static int _getBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     int startT = getStartDateTimeMillisecondsOfToDay(ofDay: ofDay) + startTime;
     int endT = getStartDateTimeMillisecondsOfToDay(ofDay: ofDay) + endTime;
-    if (isSameYMD(
+    if (isSameDay(
         getDataTimeByMilliseconds(startT), getDataTimeByMilliseconds(endT))) {
       return getStartDateTimeMillisecondsOfToDay(ofDay: ofDay);
     } else {
       //同一天，并且现在的时间比营业结束时间小
       int now = DateTime.now().millisecondsSinceEpoch;
       if (now <= endT &&
-          isSameYMD(getDataTimeByMilliseconds(now),
+          isSameDay(getDataTimeByMilliseconds(now),
               getDataTimeByMilliseconds(endTime))) {
         return getStartDateTimeMillisecondsOfToDay(ofDay: -1 + ofDay);
       } else {

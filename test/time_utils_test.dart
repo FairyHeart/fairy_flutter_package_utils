@@ -1,5 +1,4 @@
 import 'package:fairy_flutter_package_util/index_utils.dart';
-import 'package:fairy_flutter_package_util/src/date_format.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -117,8 +116,10 @@ _timeUtilTest() {
     _print('\n');
     _print(TimeUtil.format(TimeUtil.parseDataTime('2012-02-27')));
     _print(TimeUtil.format(TimeUtil.parseDataTime('2012-02-27 13:27:00')));
-    _print(TimeUtil.format(TimeUtil.parseDataTime('2012-02-27 13:27:00.123456789z')));
-    _print(TimeUtil.format(TimeUtil.parseDataTime('2012-02-27 13:27:00,123456789z')));
+    _print(TimeUtil.format(
+        TimeUtil.parseDataTime('2012-02-27 13:27:00.123456789z')));
+    _print(TimeUtil.format(
+        TimeUtil.parseDataTime('2012-02-27 13:27:00,123456789z')));
     _print(TimeUtil.format(TimeUtil.parseDataTime('20120227 13:27:00')));
     _print(TimeUtil.format(TimeUtil.parseDataTime('20120227T132700')));
     _print(TimeUtil.format(TimeUtil.parseDataTime('20120227')));
@@ -129,6 +130,23 @@ _timeUtilTest() {
     _print(TimeUtil.format(TimeUtil.parseDataTime('2002-02-27T14:00:00-0500')));
     // _print(TimeUtil.format(TimeUtil.parseDataTime('2021年04月23日 17时46分50秒')));
 
+    _print(TimeUtil.getWeekDay(TimeUtil.now));
+    _print(TimeUtil.isLeapYearByDateTime(TimeUtil.now));
+    var dateA = TimeUtil.parseDataTime('2021-04-23 12:01:01');
+    var dateB = TimeUtil.now;
+    _print('isSameDay ${TimeUtil.isSameDay(dateA, dateB)}');
+    _print('isSameMonth ${TimeUtil.isSameMonth(dateA, dateB)}');
+    _print('isSameYear ${TimeUtil.isSameYear(dateA, dateB)}');
+    _print(
+        'isToday ${TimeUtil.isToday(dateA.millisecondsSinceEpoch)} ${TimeUtil.isToday(dateB.millisecondsSinceEpoch)}');
+    _print('isYesterday ${TimeUtil.isYesterday(dateA, dateB)}');
+    _print('getDayOfYear ${TimeUtil.getDayOfYear(dateB)}');
+    _print('getDaysInMonth ${TimeUtil.getDaysInMonth(2021, 5)}');
+    _print(TimeUtil.getMilliseconds(TimeUtil.nowMilliseconds));
+    _print(TimeUtil.getStartDateTimeOfToDay(ofDay: 1).toString());
+    _print(TimeUtil.getEndDateTimeOfToDay(ofDay: -1).toString());
+    _print(TimeUtil.getStartDateTimeOfToMonth(ofMonth: -1).toString());
+    _print(TimeUtil.getEndDateTimeOfToMonth(ofMonth: 1).toString());
   });
 }
 
