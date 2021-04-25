@@ -45,7 +45,11 @@ class TimerUtil {
         _callback(time);
         cancelTimer();
       } else {
-        cancelTimer();
+        timer.cancel();
+        Future.delayed(Duration(milliseconds: time), () {
+          totalTime = 0;
+          cancelTimer();
+        });
       }
     });
   }

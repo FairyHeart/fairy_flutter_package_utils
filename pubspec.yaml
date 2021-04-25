@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # https://github.com/a14n/dart-decimal
+  decimal: ">=1.0.0 <3.0.0"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
