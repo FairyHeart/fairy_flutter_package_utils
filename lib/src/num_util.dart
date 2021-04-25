@@ -2,6 +2,14 @@ import 'package:decimal/decimal.dart';
 
 ///数字工具类
 ///another Fairy
+///
+/// ```yaml
+/// # https://github.com/a14n/dart-decimal
+/// crypto: ">=3.0.0 <5.0.0"
+///
+/// # https://github.com/dart-lang/convert
+/// decimal: ">=1.0.0 <3.0.0"
+/// ```
 
 class NumUtil {
   ///将字符串转换为数字，转换出错抛出异常
