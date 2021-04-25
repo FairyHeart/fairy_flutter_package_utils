@@ -29,6 +29,7 @@ class TimeUtil {
   }
 
   /// 格式化日期转时间
+  ///
   /// 只支持下面几种时间类型，不支持类型返回null:
   ///
   /// * `"2012-02-27"`
@@ -62,6 +63,7 @@ class TimeUtil {
   }
 
   /// 格式化日期转时间
+  ///
   /// 只支持下面几种时间类型，不支持类型抛出异常:
   ///
   /// * `"2012-02-27"`
@@ -82,9 +84,13 @@ class TimeUtil {
   }
 
   /// 时间戳(毫秒)格式化
+  ///
   /// [milliseconds] 毫秒时间戳
+  ///
   /// [dateFormat] 格式化类型
+  ///
   /// [dateSeparate] 日期分隔符
+  ///
   /// [timeSeparate] 时间分隔符
   static String formatByMilliseconds(
     int? milliseconds, {
@@ -104,9 +110,13 @@ class TimeUtil {
   }
 
   /// 时间戳(毫秒)格式化
+  ///
   /// [microseconds] 毫秒时间戳
+  ///
   /// [dateFormat] 格式化类型
+  ///
   /// [dateSeparate] 日期分隔符
+  ///
   /// [timeSeparate] 时间分隔符
   static String formatByMicroseconds(
     int? microseconds, {
@@ -126,9 +136,13 @@ class TimeUtil {
   }
 
   /// 日期格式化
+  ///
   /// [dateTime] 毫秒时间戳
+  ///
   /// [dateFormat] 格式化类型
+  ///
   /// [dateSeparate] 日期分隔符
+  ///
   /// [timeSeparate] 时间分隔符
   ///
   ///
@@ -207,20 +221,22 @@ class TimeUtil {
     return dateStr;
   }
 
-  ///获取星期几
-  ///return 1,2,3,4,5,6,7
+  ///[milliseconds]是星期几
+  ///
+  ///Returns 1,2,3,4,5,6,7
   static int getWeekDayByMilliseconds(int milliseconds, {bool isUtc = false}) {
     DateTime dateTime = getDataTimeByMilliseconds(milliseconds, isUtc: isUtc);
     return getWeekDay(dateTime);
   }
 
-  ///获取星期几
-  ///return 1,2,3,4,5,6,7
+  ///[dateTime]是星期几
+  ///
+  ///Returns 1,2,3,4,5,6,7
   static int getWeekDay(DateTime dateTime) {
     return dateTime.weekday;
   }
 
-  /// 在今年的第几天
+  /// [dateTime]在今年的第几天
   static int getDayOfYear(DateTime dateTime) {
     int year = dateTime.year;
     int month = dateTime.month;
@@ -237,7 +253,8 @@ class TimeUtil {
   }
 
   ///获取[milliseconds]中的时分秒毫秒之和
-  ///Return 总共毫秒数
+  ///
+  ///Returns 总共毫秒数
   static int getMilliseconds(int milliseconds) {
     var date = DateTime.fromMillisecondsSinceEpoch(milliseconds);
     var millSecond = date.millisecond;
@@ -247,38 +264,51 @@ class TimeUtil {
     return millSecond + second + minute + hour;
   }
 
-  ///获取几天前[ofDay]的开始时间 0 = 当天
-  ///Return 毫秒
+  ///获取几天前[ofDay]的开始时间
+  ///
+  /// [ofDay]0 = 当天
+  ///
+  ///Returns 毫秒
   static int getStartDateTimeMillisecondsOfToDay({int ofDay = 0}) {
     return getStartDateTimeOfToDay(ofDay: ofDay).millisecondsSinceEpoch;
   }
 
-  ///获取几天前[ofDay]的开始时间 0 = 当天
-  ///Return DateTime
+  ///获取几天前[ofDay]的开始时间
+  ///
+  /// [ofDay] 0 = 当天
+  ///
+  ///Returns DateTime
   static DateTime getStartDateTimeOfToDay({int ofDay = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month, now.day + ofDay, 0, 0, 0, 0, 0);
   }
 
-  ///获取某天的结束时间 0 = 当天
+  ///获取某天的结束时间
+  ///
+  /// [ofDay] 0 = 当天
   static int getEndDateTimeMillisecondsOfToDay({int ofDay = 0}) {
     return getEndDateTimeOfToDay(ofDay: ofDay).millisecondsSinceEpoch;
   }
 
-  ///获取某天的结束时间 0 = 当天
-  ///Return 毫秒
+  ///获取某天的结束时间
+  ///
+  /// [ofDay] 0 = 当天
   static DateTime getEndDateTimeOfToDay({int ofDay = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month, now.day + ofDay, 23, 59, 59, 999, 999);
   }
 
-  ///获取本月的开始时间 0 = 当月
+  ///获取本月的开始时间
+  ///
+  /// [ofMonth] 0 = 当月
   static DateTime getStartDateTimeOfToMonth({int ofMonth = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month + ofMonth, 1, 0, 0, 0, 0, 0);
   }
 
-  ///获取本月的结束时间 0 = 当月
+  ///获取本月的结束时间
+  ///
+  /// [ofMonth] 0 = 当月
   static DateTime getEndDateTimeOfToMonth({int ofMonth = 0}) {
     var now = DateTime.now();
     return DateTime(now.year, now.month + ofMonth + 1, 1, 23, 59, 59, 999, 999)
@@ -286,52 +316,80 @@ class TimeUtil {
   }
 
   ///获取开始营业时间
+  ///
   ///[startTime] 营业开始时间（时分秒毫秒之和）
+  ///
   ///[endTime] 营业结束时间（时分秒毫秒之和）
+  ///
   ///[ofDay] 天数，0当天
   static int getStartBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     return _getBusinessTime(startTime, endTime, ofDay: ofDay) + startTime;
   }
 
   ///获取开始营业时间
+  ///
   ///[startTime] 营业开始时间（时分秒毫秒之和）
+  ///
   ///[endTime] 营业结束时间（时分秒毫秒之和）
+  ///
   ///[ofDay] 天数，0当天
   static int getEndBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     return _getBusinessTime(startTime, endTime, ofDay: ofDay) + endTime;
   }
 
   ///相差多少个月
+  ///
+  /// [startDate] 开始时间
+  ///
+  /// [endDate] 结束时间
   static int monthDelta(DateTime startDate, DateTime endDate) {
     return DateUtils.monthDelta(startDate, endDate);
   }
 
   ///判断是否为闰年
+  ///
+  /// [dateTime]日期
   static bool isLeapYearByDateTime(DateTime dateTime) {
     return isLeapYearByYear(dateTime.year);
   }
 
   ///判断是否为闰年
+  ///
+  /// [year]年份
   static bool isLeapYearByYear(int year) {
     return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
   }
 
   /// 是否同日
+  ///
+  /// [dateA] 第一个日期
+  ///
+  /// [dateB] 第二个日期
   static bool isSameDay(DateTime? dateA, DateTime? dateB) {
     return DateUtils.isSameDay(dateA, dateB);
   }
 
   /// 是否同月
+  ///
+  /// [dateA] 第一个日期
+  ///
+  /// [dateB] 第二个日期
   static bool isSameMonth(DateTime? dateA, DateTime? dateB) {
     return DateUtils.isSameMonth(dateA, dateB);
   }
 
   /// 是否同年
+  ///
+  /// [dateA] 第一个日期
+  ///
+  /// [dateB] 第二个日期
   static bool isSameYear(DateTime? dateA, DateTime? dateB) {
     return dateA?.year == dateB?.year;
   }
 
   /// 是否是今天
+  ///
+  /// [milliseconds]日期时间戳-毫秒
   static bool isToday(int? milliseconds, {bool isUtc = false}) {
     if (milliseconds == null || milliseconds == 0) return false;
     DateTime old =
@@ -341,6 +399,12 @@ class TimeUtil {
   }
 
   /// 是否是昨天
+  ///
+  /// [dateTime] 验证的时间
+  ///
+  /// [locDateTime] 校验的时间
+  ///
+  /// Returns bool
   static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
     if (isSameYear(dateTime, locDateTime)) {
       int spDay = getDayOfYear(locDateTime) - getDayOfYear(dateTime);
@@ -354,7 +418,15 @@ class TimeUtil {
     }
   }
 
-  ///获取营业时间,startTime=开始时间戳,endTime=结束时间戳,ofDay=0当天，return 营业开始的时间
+  ///获取营业时间
+  ///
+  ///[startTime]开始时间戳
+  ///
+  ///[endTime]结束时间戳
+  ///
+  ///[ofDay]0当天
+  ///
+  ///Returns 营业开始的时间
   static int _getBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     int startT = getStartDateTimeMillisecondsOfToDay(ofDay: ofDay) + startTime;
     int endT = getStartDateTimeMillisecondsOfToDay(ofDay: ofDay) + endTime;
@@ -375,7 +447,8 @@ class TimeUtil {
   }
 
   /// 是否显示中文类型时间格式
-  /// Return DateTime
+  ///
+  /// Returns DateTime
   static bool _isZHFormat(DateFormat format) {
     return format == DateFormat.ZH_DEFAULT ||
         format == DateFormat.ZH_NORMAL ||
