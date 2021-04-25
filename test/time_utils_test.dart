@@ -1,4 +1,4 @@
-import 'package:fairy_flutter_package_util/index_utils.dart';
+import 'package:fairy_flutter_package_util/fairy_flutter_package_util.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
