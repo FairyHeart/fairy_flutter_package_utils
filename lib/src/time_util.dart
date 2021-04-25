@@ -220,54 +220,6 @@ class TimeUtil {
     return dateTime.weekday;
   }
 
-  ///判断是否为闰年
-  static bool isLeapYearByDateTime(DateTime dateTime) {
-    return isLeapYearByYear(dateTime.year);
-  }
-
-  ///判断是否为闰年
-  static bool isLeapYearByYear(int year) {
-    return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
-  }
-
-  /// 是否同日
-  static bool isSameDay(DateTime? dateA, DateTime? dateB) {
-    return DateUtils.isSameDay(dateA, dateB);
-  }
-
-  /// 是否同月
-  static bool isSameMonth(DateTime? dateA, DateTime? dateB) {
-    return DateUtils.isSameMonth(dateA, dateB);
-  }
-
-  /// 是否同年
-  static bool isSameYear(DateTime? dateA, DateTime? dateB) {
-    return dateA?.year == dateB?.year;
-  }
-
-  /// 是否是今天
-  static bool isToday(int? milliseconds, {bool isUtc = false}) {
-    if (milliseconds == null || milliseconds == 0) return false;
-    DateTime old =
-        DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
-    DateTime now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
-    return old.year == now.year && old.month == now.month && old.day == now.day;
-  }
-
-  /// 是否是昨天
-  static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
-    if (isSameYear(dateTime, locDateTime)) {
-      int spDay = getDayOfYear(locDateTime) - getDayOfYear(dateTime);
-      return spDay == 1;
-    } else {
-      return ((locDateTime.year - dateTime.year == 1) &&
-          dateTime.month == 12 &&
-          locDateTime.month == 1 &&
-          dateTime.day == 31 &&
-          locDateTime.day == 1);
-    }
-  }
-
   /// 在今年的第几天
   static int getDayOfYear(DateTime dateTime) {
     int year = dateTime.year;
@@ -282,11 +234,6 @@ class TimeUtil {
   ///获取某月的最大天数
   static int getDaysInMonth(int year, int month) {
     return DateUtils.getDaysInMonth(year, month);
-  }
-
-  ///相差多少个月
-  static int monthDelta(DateTime startDate, DateTime endDate) {
-    return DateUtils.monthDelta(startDate, endDate);
   }
 
   ///获取[milliseconds]中的时分秒毫秒之和
@@ -352,6 +299,59 @@ class TimeUtil {
   ///[ofDay] 天数，0当天
   static int getEndBusinessTime(int startTime, int endTime, {int ofDay = 0}) {
     return _getBusinessTime(startTime, endTime, ofDay: ofDay) + endTime;
+  }
+
+  ///相差多少个月
+  static int monthDelta(DateTime startDate, DateTime endDate) {
+    return DateUtils.monthDelta(startDate, endDate);
+  }
+
+  ///判断是否为闰年
+  static bool isLeapYearByDateTime(DateTime dateTime) {
+    return isLeapYearByYear(dateTime.year);
+  }
+
+  ///判断是否为闰年
+  static bool isLeapYearByYear(int year) {
+    return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+  }
+
+  /// 是否同日
+  static bool isSameDay(DateTime? dateA, DateTime? dateB) {
+    return DateUtils.isSameDay(dateA, dateB);
+  }
+
+  /// 是否同月
+  static bool isSameMonth(DateTime? dateA, DateTime? dateB) {
+    return DateUtils.isSameMonth(dateA, dateB);
+  }
+
+  /// 是否同年
+  static bool isSameYear(DateTime? dateA, DateTime? dateB) {
+    return dateA?.year == dateB?.year;
+  }
+
+  /// 是否是今天
+  static bool isToday(int? milliseconds, {bool isUtc = false}) {
+    if (milliseconds == null || milliseconds == 0) return false;
+    DateTime old =
+        DateTime.fromMillisecondsSinceEpoch(milliseconds, isUtc: isUtc);
+    DateTime now = isUtc ? DateTime.now().toUtc() : DateTime.now().toLocal();
+    return old.year == now.year && old.month == now.month && old.day == now.day;
+  }
+
+  /// 是否是昨天
+  static bool isYesterday(DateTime dateTime, DateTime locDateTime) {
+    if (isSameYear(dateTime, locDateTime)) {
+      int spDay = getDayOfYear(locDateTime) - getDayOfYear(dateTime);
+      return spDay == 1;
+    } else {
+      return ((locDateTime.year - dateTime.year == 1) &&
+          dateTime.month == 12 &&
+          locDateTime.month == 1 &&
+          dateTime.day == 31 &&
+          locDateTime.day == 1);
+    }
   }
 
   ///获取营业时间,startTime=开始时间戳,endTime=结束时间戳,ofDay=0当天，return 营业开始的时间
