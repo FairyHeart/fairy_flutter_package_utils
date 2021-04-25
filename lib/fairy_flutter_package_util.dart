@@ -5,3 +5,4 @@ export 'src/time_util.dart';
 export 'src/timer_util.dart';
 export 'src/money_util.dart';
 export 'src/num_util.dart';
+export 'src/regex_util.dart';
