@@ -132,55 +132,55 @@ class TimeUtil {
   /// [timeSeparate] 时间分隔符
   ///
   ///
-  /// TimeUtil.format(time, dateFormat: DateFormat.DEFAULT) -> 2021-04-23 16:56:19.961
-  /// TimeUtil.format(time, dateFormat: DateFormat.NORMAL) -> 2021-04-23 16:56:19
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE) -> 2021-04-23 16:56
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY) -> 2021-04-23
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH) -> 2021-04
-  /// TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY) -> 04-23
-  /// TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE) -> 04-23 16:56
-  /// TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE_SECOND) -> 16:56:19
-  /// TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE) -> 16:56
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.DEFAULT) -> 2021-04-23 16:56:19.961`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.NORMAL) -> 2021-04-23 16:56:19`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE) -> 2021-04-23 16:56`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY) -> 2021-04-23`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH) -> 2021-04`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY) -> 04-23`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE) -> 04-23 16:56`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE_SECOND) -> 16:56:19`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE) -> 16:56`
   ///
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_DEFAULT) -> 2021年04月23日 16时56分19秒961毫秒
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_NORMAL) -> 2021年04月23日 16时56分19秒
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH_DAY_HOUR_MINUTE) -> 2021年04月23日 16时56分
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH_DAY) -> 2021年04月23日
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH) -> 2021年04月
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_MONTH_DAY) -> 04月23日
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_MONTH_DAY_HOUR_MINUTE) -> 04月23日 16时56分
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_HOUR_MINUTE_SECOND) -> 16时56分19秒
-  /// TimeUtil.format(time, dateFormat: DateFormat.ZH_HOUR_MINUTE) -> 16时56分
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_DEFAULT) -> 2021年04月23日 16时56分19秒961毫秒`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_NORMAL) -> 2021年04月23日 16时56分19秒`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH_DAY_HOUR_MINUTE) -> 2021年04月23日 16时56分`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH_DAY) -> 2021年04月23日`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_YEAR_MONTH) -> 2021年04月`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_MONTH_DAY) -> 04月23日`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_MONTH_DAY_HOUR_MINUTE) -> 04月23日 16时56分`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_HOUR_MINUTE_SECOND) -> 16时56分19秒`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.ZH_HOUR_MINUTE) -> 16时56分`
   ///
-  /// TimeUtil.format(time, dateFormat: DateFormat.DEFAULT, dateSeparate: '/') -> 2021/04/23 17:24:38.960387
-  /// TimeUtil.format(time, dateFormat: DateFormat.NORMAL, dateSeparate: '/') -> 2021/04/23 17:24:38
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE, dateSeparate: '/') -> 2021/04/23 17:24
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY, dateSeparate: '/') -> 2021/04/23
-  /// TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH, dateSeparate: '/') -> 2021/04
-  /// TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY, dateSeparate: '/') -> 04/23
-  /// TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE, dateSeparate: '/') -> 04/23 17:24
-  /// TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE_SECOND, dateSeparate: '/') -> 17:24:38
-  /// TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE, dateSeparate: '/') -> 17:24
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.DEFAULT, dateSeparate: '/') -> 2021/04/23 17:24:38.960387`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.NORMAL, dateSeparate: '/') -> 2021/04/23 17:24:38`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE, dateSeparate: '/') -> 2021/04/23 17:24`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH_DAY, dateSeparate: '/') -> 2021/04/23`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.YEAR_MONTH, dateSeparate: '/') -> 2021/04`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY, dateSeparate: '/') -> 04/23`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE, dateSeparate: '/') -> 04/23 17:24`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE_SECOND, dateSeparate: '/') -> 17:24:38`
+  /// * `TimeUtil.format(time, dateFormat: DateFormat.HOUR_MINUTE, dateSeparate: '/') -> 17:24`
   ///
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_DEFAULT, timeSeparate: ':') -> 2021年04月23日 17:24:38.960387
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_NORMAL, timeSeparate: ':') -> 2021年04月23日 17:24:38
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH_DAY_HOUR_MINUTE, timeSeparate: ':') -> 2021年04月23日 17:24
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH_DAY, timeSeparate: ':') -> 2021年04月23日
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH, timeSeparate: ':') -> 2021年04月
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_MONTH_DAY, timeSeparate: ':') -> 04月23日
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_MONTH_DAY_HOUR_MINUTE, timeSeparate: ':') -> 04月23日 17:24
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_HOUR_MINUTE_SECOND, timeSeparate: ':') -> 17:24:38
-  /// TimeUtil.format(time,dateFormat: DateFormat.ZH_HOUR_MINUTE, timeSeparate: ':') -> 17:24
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_DEFAULT, timeSeparate: ':') -> 2021年04月23日 17:24:38.960387`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_NORMAL, timeSeparate: ':') -> 2021年04月23日 17:24:38`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH_DAY_HOUR_MINUTE, timeSeparate: ':') -> 2021年04月23日 17:24`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH_DAY, timeSeparate: ':') -> 2021年04月23日`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_YEAR_MONTH, timeSeparate: ':') -> 2021年04月`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_MONTH_DAY, timeSeparate: ':') -> 04月23日`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_MONTH_DAY_HOUR_MINUTE, timeSeparate: ':') -> 04月23日 17:24`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_HOUR_MINUTE_SECOND, timeSeparate: ':') -> 17:24:38`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.ZH_HOUR_MINUTE, timeSeparate: ':') -> 17:24`
   ///
-  /// TimeUtil.format(time,dateFormat: DateFormat.DEFAULT, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24|38.960387
-  /// TimeUtil.format(time,dateFormat: DateFormat.NORMAL, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24|38
-  /// TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24
-  /// TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH_DAY, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23
-  /// TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH, dateSeparate: '/', timeSeparate: '|') -> 2021/04
-  /// TimeUtil.format(time,dateFormat: DateFormat.MONTH_DAY, dateSeparate: '/', timeSeparate: '|') -> 04/23
-  /// TimeUtil.format(time,dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 04/23 17|24
-  /// TimeUtil.format(time,dateFormat: DateFormat.HOUR_MINUTE_SECOND, dateSeparate: '/', timeSeparate: '|') -> 17|24|38
-  /// TimeUtil.format(time,dateFormat: DateFormat.HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 17|24
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.DEFAULT, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24|38.960387`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.NORMAL, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24|38`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH_DAY_HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23 17|24`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH_DAY, dateSeparate: '/', timeSeparate: '|') -> 2021/04/23`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.YEAR_MONTH, dateSeparate: '/', timeSeparate: '|') -> 2021/04`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.MONTH_DAY, dateSeparate: '/', timeSeparate: '|') -> 04/23`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.MONTH_DAY_HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 04/23 17|24`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.HOUR_MINUTE_SECOND, dateSeparate: '/', timeSeparate: '|') -> 17|24|38`
+  /// * `TimeUtil.format(time,dateFormat: DateFormat.HOUR_MINUTE, dateSeparate: '/', timeSeparate: '|') -> 17|24`
   ///
   static String format(
     DateTime? dateTime, {
