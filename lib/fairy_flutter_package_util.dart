@@ -7,3 +7,5 @@ export 'src/money_util.dart';
 export 'src/num_util.dart';
 export 'src/regex_util.dart';
 export 'src/encrypt_util.dart';
+export 'src/string_util.dart';
+export 'src/list_util.dart';

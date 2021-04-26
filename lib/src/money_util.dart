@@ -1,6 +1,7 @@
 import 'package:fairy_flutter_package_util/fairy_flutter_package_util.dart';
 
 ///货币工具类
+///
 ///another Fairy
 
 class MoneyUtil {

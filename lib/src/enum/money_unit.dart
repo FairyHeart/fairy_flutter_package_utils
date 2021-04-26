@@ -1,4 +1,5 @@
 ///货币单位
+///
 ///another Fairy
 
 enum MoneyUnit {

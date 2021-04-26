@@ -1,4 +1,5 @@
 ///货币格式化
+///
 ///another Fairy
 
 enum MoneyFormat {

@@ -4,6 +4,7 @@ import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 
 ///加密工具类
+///
 ///another Fairy
 ///
 /// ```yaml
