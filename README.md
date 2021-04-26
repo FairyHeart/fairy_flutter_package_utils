@@ -1,2 +1,11 @@
-# flutter_package_utils
-flutter 工具类
+
+#flutter 工具类
+1. EncryptUtil:加密工具类,提供md5、Base64加解密等功能.
+2. ListUtil:集合工具类,提供集合是否为空和相等等功能.
+3. MoneyUtil:货币工具类,格式化输出、元转分、分转元、单位拼接等功能.
+4. NumUtil:数字工具类,格式化输出、高精度加减乘除、取余、大小比较等功能.
+5. RegexUtil:正则表达式工具类，手机号、密码、邮箱等匹配功能.
+6. StringUtil:字符串工具类，是否为空、分割、替换等功能.
+7. TimeUtil:日期工具类，日期格式化输出和转日期、获取天数等一系列常用功能.
+8. TimerUtil:定时器工具类，定时器和倒计时功能。
+
