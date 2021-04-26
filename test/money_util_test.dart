@@ -6,7 +6,7 @@ void main() {
 }
 
 void testNum() {
-  test('NumUtil', () {
+  test('MoneyUtil', () {
     var fen = 120;
     _print(MoneyUtil.fenToYuan(fen));
     _print(MoneyUtil.fenToYuan(fen,format: MoneyFormat.NORMAL,unit: MoneyUnit.YUAN));

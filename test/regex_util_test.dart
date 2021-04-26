@@ -6,7 +6,7 @@ void main() {
 }
 
 void testNum() {
-  test('NumUtil', () {
+  test('MoneyUtil', () {
     _print(RegexUtil.isMobileSimple('16657135763'));
     _print(RegexUtil.isTel('07377443431'));
     _print(RegexUtil.isEmail('425529516@126.com'));

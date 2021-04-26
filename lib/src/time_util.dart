@@ -619,15 +619,6 @@ class TimeUtil {
     return time;
   }
 
-  ///格式：2021-03-18 12:00:00
-  static String _formatYMDHMS(int? time) {
-    if (time == null || time == 0) {
-      return '';
-    }
-    var date = DateTime.fromMillisecondsSinceEpoch(time);
-    return '${date.year}-${_twoDigits(date.month)}-${_twoDigits(date.day)} ${_twoDigits(date.hour)}:${_twoDigits(date.minute)}:${_twoDigits(date.second)}';
-  }
-
   ///补齐两位小数
   static String _twoDigits(int n) {
     if (n >= 10) return '$n';

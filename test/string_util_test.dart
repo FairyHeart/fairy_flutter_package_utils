@@ -6,7 +6,7 @@ void main() {
 }
 
 void testNum() {
-  test('NumUtil', () {
+  test('StringUtil', () {
     _print(StringUtil.isEmpty(null)); //true
     _print(StringUtil.isEmpty('')); //true
     _print(StringUtil.isEmpty('   ')); //false
